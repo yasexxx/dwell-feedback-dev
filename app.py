@@ -4,7 +4,7 @@ from flask import Flask, render_template
 from flask_mongoengine import MongoEngine
 
 
-app = Flask(__name__, template_folder='dowell_app/templates')
+app = Flask(__name__)
 
 def select_env():
     env = os.getenv('ENV_OPT')
@@ -17,15 +17,15 @@ select_env()
 mongodb = MongoEngine()
 mongodb.init_app(app)
 
-@app.route('/')
-def index():
-    return render_template('home.html')
+# @app.route('/')
+# def index():
+#     return render_template('home.html')
 
 
 from dowell_app.blueprints.home.home import home
 from dowell_app.blueprints.user.user import user
 app.register_blueprint(home)
-app.register_blueprint(user)
+app.register_blueprint(user, url_prefix='/user')
 
 def create_app():
     return app
