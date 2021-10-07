@@ -4,7 +4,7 @@ from flask import Flask
 from flask_mongoengine import MongoEngine
 
 def select_env():
-    env = os.getenv('FLASK_ENV')
+    env = os.getenv('ENV_OPT')
     if env == 'production':
         app.config.from_object('config.ProductionConfig')
     else :
