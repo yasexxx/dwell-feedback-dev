@@ -1,10 +1,10 @@
 
 import os
-from flask import Flask
+from flask import Flask, render_template
 from flask_mongoengine import MongoEngine
 
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='dowell_app/templates')
 
 def select_env():
     env = os.getenv('ENV_OPT')
@@ -26,7 +26,7 @@ def create_app():
 
 @app.route('/')
 def index():
-    return 'Hello world'
+    return render_template('home.html')
 
 from app import app
 
