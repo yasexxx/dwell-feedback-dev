@@ -20,10 +20,13 @@ mongodb.init_app(app)
 def create_app():
     from dowell_app.blueprints.home.views import home
     from dowell_app.blueprints.user.views import user
-    app.register_blueprint(blueprint=home)
+    # app.register_blueprint(blueprint=home)
     app.register_blueprint(blueprint=user, url_prefix="/user")
-    print('URL_MAP: ',app.url_map)
     return app
+
+@app.route('/')
+def index():
+    return 'Hello world'
 
 from app import app
 
