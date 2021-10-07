@@ -17,16 +17,17 @@ select_env()
 mongodb = MongoEngine()
 mongodb.init_app(app)
 
-def create_app():
-    from dowell_app.blueprints.home.home import home
-    from dowell_app.blueprints.user.user import user
-    app.register_blueprint(blueprint=home)
-    app.register_blueprint(blueprint=user, url_prefix="/user")
-    return app
 
 @app.route('/')
 def index():
     return render_template('home.html')
+
+def create_app():
+    from dowell_app.blueprints.home.home import home
+    from dowell_app.blueprints.user.user import user
+    app.register_blueprint(home)
+    app.register_blueprint(user)
+    return app
 
 from app import app
 

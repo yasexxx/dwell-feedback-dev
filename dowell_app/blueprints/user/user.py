@@ -2,7 +2,7 @@ from flask import Blueprint, json
 from flask import request, jsonify
 from dowell_app.models.user import User
 
-user = Blueprint('user', __name__)
+user = Blueprint('user', __name__, url_prefix='/user')
 
 @user.route('/', methods=['GET'])
 def query_records():
