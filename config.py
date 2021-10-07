@@ -21,8 +21,7 @@ class ProductionConfig(Config):
 
 
 class DevelopmentConfig(Config):
-    ENV = 'development'
-    DEVELOPMENT = True
+    DEBUG = True
     SECRET_KEY = os.getenv('SECRET_KEY')
     OAUTHLIB_INSECURE_TRANSPORT = True
 
