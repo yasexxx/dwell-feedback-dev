@@ -9,7 +9,7 @@ class Config(object):
     CSRF_ENABLED = True
     SESSION_COOKIE_SECURE = True
     SESSION_COOKIE_HTTPONLY = True
-    SESSION_COOKIE_SAMESITE = 'None'
+    # SESSION_COOKIE_SAMESITE = 'None'
     MONGODB_SETTINGS = {
         'db': os.getenv('DATABASE_NAME'),
         'host': os.getenv('DATABASE_URL'),

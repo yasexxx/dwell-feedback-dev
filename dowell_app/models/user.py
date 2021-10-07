@@ -1,4 +1,4 @@
-from run import mongodb
+from app import mongodb
 
 class User(mongodb.Document):
     name = mongodb.StringField()
