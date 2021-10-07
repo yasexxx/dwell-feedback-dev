@@ -21,11 +21,12 @@ mongodb.init_app(app)
 # def index():
 #     return render_template('home.html')
 
-
 from dowell_app.blueprints.home.home import home
 from dowell_app.blueprints.user.user import user
+from dowell_app.blueprints.feedback.feedback import feedback
 app.register_blueprint(home)
 app.register_blueprint(user, url_prefix='/user')
+app.register_blueprint(feedback, url_prefix='/feedback')
 
 def create_app():
     return app
