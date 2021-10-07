@@ -24,6 +24,7 @@ def create_app():
     app.register_blueprint(blueprint=user, url_prefix="/user")
     return app
 
+from app import app
 
 
 if __name__ == "__main__":
