@@ -16,7 +16,6 @@ def create_app():
     from dowell_app.blueprints.home.views import home
     app.register_blueprint(blueprint=user, url_prefix="/user")
     app.register_blueprint(blueprint=home)
-    
     return app
 
 app = Flask(__name__)
