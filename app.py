@@ -1,8 +1,7 @@
 
 import os
-from flask import Flask, render_template
+from flask import Flask
 from flask_mongoengine import MongoEngine
-
 
 app = Flask(__name__)
 
@@ -17,22 +16,16 @@ select_env()
 mongodb = MongoEngine()
 mongodb.init_app(app)
 
-# @app.route('/')
-# def index():
-#     return render_template('home.html')
-
-from dowell_app.blueprints.home.home import home
-from dowell_app.blueprints.user.user import user
-from dowell_app.blueprints.feedback.feedback import feedback
-app.register_blueprint(home)
-app.register_blueprint(user, url_prefix='/user')
-app.register_blueprint(feedback, url_prefix='/feedback')
-
-def create_app():
-    return app
-
 from app import app
 
-
+def create_app():
+    from dowell_app.blueprints.home.views import home
+    from dowell_app.blueprints.user.views import user
+    from dowell_app.blueprints.feedback.views import feedback
+    app.register_blueprint(home)
+    app.register_blueprint(user, name='user', url_prefix='/user')
+    app.register_blueprint(feedback, url_prefix='/feedback')
+    return app
+    
 if __name__ == "__main__":
     create_app().run()

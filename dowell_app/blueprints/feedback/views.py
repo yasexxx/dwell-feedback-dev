@@ -10,9 +10,10 @@ def query_records():
     print('ARGUMENTS: ', args)
     fb = Feedback.objects()
     if not fb:
-        return jsonify({'error': 'Data not found', 'success': False}), 404
+        data = list()
+        return jsonify(data), 200
     else:
-        return jsonify(fb.to_json(fb)), 200
+        return jsonify(fb), 200
 
 @feedback.route('/', methods=['PUT'])
 def create_feedback():
@@ -20,7 +21,7 @@ def create_feedback():
     fb = Feedback(name=record['name'], project_id=record['project_id'], email=record['email'],  occupation=record['occupation'],
         feedback_1=record['feedback_1'], feedback_2=record['feedback_2'], total=record['total'],)
     fb.save()
-    return jsonify({'message'})
+    return jsonify({'message': 'Feedback added with name {}'.format(record['name'])}), 200
 
 @feedback.route('/', methods=['DELETE'])
 def delete_record():

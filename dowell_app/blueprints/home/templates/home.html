@@ -28,36 +28,18 @@
                   </tr>
                 </thead>
                 <tbody>
+                  {% for ix, item in enumerate(fb_list) %}
                   <tr class="text-center">
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>AKWEFO123</td>
-                    <td>email1@gmail.com</td>
-                    <td>Developer</td>
-                    <td>4</td>
-                    <td>2</td>
-                    <td>59</td>
+                    <th scope="row">{{ix+1}}</th>
+                    <td>{{item.name}}</td>
+                    <td>{{item.project_id}}</td>
+                    <td>{{item.email}}</td>
+                    <td>{{item.occupation}}</td>
+                    <td>{{item.feedback_1}}</td>
+                    <td>{{item.feedback_2}}</td>
+                    <td>{{item.total}}</td>
                   </tr>
-                  <tr class="text-center">
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>PROAK342</td>
-                    <td>email1@gmail.com</td>
-                    <td>Developer</td>
-                    <td>1</td>
-                    <td>5</td>
-                    <td>92</td>
-                  </tr>
-                  <tr class="text-center">
-                    <th scope="row">3</th>
-                    <td>Larry the Bird</td>
-                    <td>SKRFO123</td>
-                    <td>email1@gmail.com</td>
-                    <td>Developer</td>
-                    <td>4</td>
-                    <td>2</td>
-                    <td>89</td>
-                  </tr>
+                  {% endfor %}
                 </tbody>
               </table>
         </div>
