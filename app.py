@@ -18,14 +18,12 @@ mongodb.init_app(app)
 
 from app import app
 
-def create_app():
-    from dowell_app.blueprints.home.views import home
-    from dowell_app.blueprints.user.views import user
-    from dowell_app.blueprints.feedback.views import feedback
-    app.register_blueprint(home)
-    app.register_blueprint(user, name='user', url_prefix='/user')
-    app.register_blueprint(feedback, url_prefix='/feedback')
-    return app
-    
+from dowell_app.blueprints.home.views import home
+from dowell_app.blueprints.user.views import user
+from dowell_app.blueprints.feedback.views import feedback
+app.register_blueprint(home)
+app.register_blueprint(user, name='user', url_prefix='/user')
+app.register_blueprint(feedback, url_prefix='/feedback')
+
 if __name__ == "__main__":
-    create_app().run()
+    app.run()
