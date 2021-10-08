@@ -24,14 +24,13 @@ function fetch_data() {
       });
 }
 
-window.MessageBirdChatWidget.startConversation('hello there')
-console.log(window.MessageBirdChatWidget);
+console.log('MessageBird', MessageBirdChatWidget);
 // function removeDlBtn(){
-//   var head = $("#iframe").contents().find("head");
-//   var css = '<style type="text/css">' +
-//             '.styles_footer__PCkie {display:none !important}; ' +
-//             '</style>';
-//   $(head).append(css);
+  // var head = $("#iframe").contents().find("head");
+  // var css = '<style type="text/css">' +
+  //           '.styles_footer__PCkie {display:none !important}; ' +
+  //           '</style>';
+  // $(head).append(css);
 // }
 // removeDlBtn();
 fetch_data();
