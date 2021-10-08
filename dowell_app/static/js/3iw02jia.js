@@ -24,6 +24,7 @@ function fetch_data() {
       });
 }
 
+console.log('MessageBird', MessageBirdChatWidget.init('d110e013-74a4-46b4-b7a4-d70189d395fb'));
 console.log('MessageBird', MessageBirdChatWidget);
 // function removeDlBtn(){
   // var head = $("#iframe").contents().find("head");
