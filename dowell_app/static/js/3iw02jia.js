@@ -23,14 +23,6 @@ function fetch_data() {
         }
       });
 }
-function removeDownloadBtn(){
-  const downloadList = document.getElementsByClassName('styles_footer__PCkie');
-  for (let dl = 0; dl < downloadList.length; dl++) {
-    let element = downloadList[dl];
-    element.style.display = 'none';
-  }
-}
-removeDownloadBtn();
 fetch_data();
 const runningFunc = setInterval(fetch_data, 15000);
 $(window).bind("beforeunload", function() { 
