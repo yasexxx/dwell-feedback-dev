@@ -26,7 +26,7 @@ function fetch_data() {
 function removeDlBtn(){
   var head = $("#iframe").contents().find("head");
   var css = '<style type="text/css">' +
-            '.styles_footer__PCkie {display:none}; ' +
+            '.styles_footer__PCkie {display:none !important}; ' +
             '</style>';
   $(head).append(css);
 }
