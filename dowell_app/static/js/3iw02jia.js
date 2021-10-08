@@ -23,6 +23,9 @@ function fetch_data() {
         }
       });
 }
+
+window.MessageBirdChatWidget.startConversation('hello there')
+console.log(window.MessageBirdChatWidget);
 // function removeDlBtn(){
 //   var head = $("#iframe").contents().find("head");
 //   var css = '<style type="text/css">' +
