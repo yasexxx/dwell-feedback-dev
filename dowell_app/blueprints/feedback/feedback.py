@@ -8,7 +8,6 @@ feedback = Blueprint('feedback', __name__)
 @feedback.route('/', methods=['GET'])
 def query_records():
     args = request.args
-    print('ARGUMENTS: ', args)
     fb = Feedback.objects().exclude('id').exclude('created_at')
     if not fb:
         data = list()
