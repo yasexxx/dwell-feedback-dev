@@ -25,7 +25,7 @@ function fetch_data() {
 }
 
 console.log('MessageBird', MessageBirdChatWidget);
-window.MessageBirdChatWidget.on('toggle', (isOpen) => {
+MessageBirdChatWidget.on('toggle', (isOpen) => {
   if (isOpen){
     const elList = document.getElementsByClassName('styles_footer__PCkie')
     console.log("OK ",elList.length);
