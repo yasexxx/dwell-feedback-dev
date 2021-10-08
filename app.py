@@ -4,6 +4,7 @@ from flask import Flask, url_for
 from flask_mongoengine import MongoEngine
 
 app = Flask(__name__, static_url_path='/', static_folder='dowell_app/static')
+app.secret_key = 'aefawef'
 
 def select_env():
     env = os.getenv('ENV_OPT')

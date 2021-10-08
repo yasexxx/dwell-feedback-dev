@@ -24,6 +24,7 @@ class DevelopmentConfig(Config):
     DEBUG = True
     SECRET_KEY = os.getenv('SECRET_KEY')
     OAUTHLIB_INSECURE_TRANSPORT = True
+    TEMPLATES_AUTO_RELOAD = True
 
 
 class TestingConfig(Config):
