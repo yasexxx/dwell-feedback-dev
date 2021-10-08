@@ -28,6 +28,8 @@ console.log('MessageBird', MessageBirdChatWidget);
 MessageBirdChatWidget.on('toggle', (isOpen) => {
   if (isOpen){
     const elList = document.getElementsByClassName('styles_footer__PCkie')
+    const new_ = document.getElementById('chat-widget-container');
+    console.log(new_);
     console.log("OK ",elList.length);
     if (elList.length){
       for (let ix = 0; ix < elList.length; ix++) {
