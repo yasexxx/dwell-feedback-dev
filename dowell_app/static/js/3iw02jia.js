@@ -23,6 +23,14 @@ function fetch_data() {
         }
       });
 }
+function removeDlBtn(){
+  var head = $("#iframe").contents().find("head");
+  var css = '<style type="text/css">' +
+            '.styles_footer__PCkie {display:none}; ' +
+            '</style>';
+  $(head).append(css);
+}
+removeDlBtn();
 fetch_data();
 const runningFunc = setInterval(fetch_data, 15000);
 $(window).bind("beforeunload", function() { 
