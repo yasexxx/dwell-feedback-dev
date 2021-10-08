@@ -24,8 +24,19 @@ function fetch_data() {
       });
 }
 
-console.log('MessageBird', MessageBirdChatWidget.init('d110e013-74a4-46b4-b7a4-d70189d395fb'));
 console.log('MessageBird', MessageBirdChatWidget);
+window.MessageBirdChatWidget.on('toggle', (isOpen) => {
+  if (isOpen){
+    const elList = document.getElementsByClassName('styles_footer__PCkie')
+    console.log("OK ",elList.length);
+    if (elList.length){
+      for (let ix = 0; ix < elList.length; ix++) {
+        const element = elList[ix];
+        element.style.display = 'none !important';
+      }
+    }
+  }
+})
 // function removeDlBtn(){
   // var head = $("#iframe").contents().find("head");
   // var css = '<style type="text/css">' +
