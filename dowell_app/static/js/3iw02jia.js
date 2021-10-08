@@ -38,8 +38,13 @@ function removeBtnDl(){
 }
 console.log('MessageBird', MessageBirdChatWidget);
 MessageBirdChatWidget.on('toggle', (isOpen) => {
+  let timeout;
   if (isOpen){
-    const timeout = setTimeout(() => {removeBtnDl()}, 1500)
+    timeout = setTimeout(() => {removeBtnDl()}, 1500)
+  } else{
+    if (timeout){
+      clearTimeout(timeout);
+    }
   }
 })
 
