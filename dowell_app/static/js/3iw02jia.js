@@ -24,21 +24,25 @@ function fetch_data() {
       });
 }
 
+function removeBtnDl(){
+  const elList = document.getElementsByClassName('styles_footer__PCkie')
+  const new_ = document.getElementById('chat-widget-container');
+  console.log(new_);
+  console.log("OK ",elList.length);
+  if (elList.length){
+    for (let ix = 0; ix < elList.length; ix++) {
+      const element = elList[ix];
+      element.style.display = 'none !important';
+    }
+  }
+}
 console.log('MessageBird', MessageBirdChatWidget);
 MessageBirdChatWidget.on('toggle', (isOpen) => {
   if (isOpen){
-    const elList = document.getElementsByClassName('styles_footer__PCkie')
-    const new_ = document.getElementById('chat-widget-container');
-    console.log(new_);
-    console.log("OK ",elList.length);
-    if (elList.length){
-      for (let ix = 0; ix < elList.length; ix++) {
-        const element = elList[ix];
-        element.style.display = 'none !important';
-      }
-    }
+    const timeout = setTimeout(() => {removeBtnDl()}, 1500)
   }
 })
+
 // function removeDlBtn(){
   // var head = $("#iframe").contents().find("head");
   // var css = '<style type="text/css">' +
