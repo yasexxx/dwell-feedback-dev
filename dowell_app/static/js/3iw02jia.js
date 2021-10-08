@@ -24,7 +24,7 @@ function fetch_data() {
       });
 }
 fetch_data();
-const runningFunc = setInterval(fetch_data, 40000);
+const runningFunc = setInterval(fetch_data, 15000);
 $(window).bind("beforeunload", function() { 
     clearInterval(runningFunc)
 })
