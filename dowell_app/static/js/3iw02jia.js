@@ -23,39 +23,6 @@ function fetch_data() {
         }
       });
 }
-
-function removeBtnDl(){
-  const elList = document.getElementsByClassName('styles_footer__PCkie')
-  const new_ = document.getElementById('chat-widget-container');
-  console.log(new_);
-  console.log("OK ",elList.length);
-  if (elList.length){
-    for (let ix = 0; ix < elList.length; ix++) {
-      const element = elList[ix];
-      element.style.display = 'none !important';
-    }
-  }
-}
-console.log('MessageBird', MessageBirdChatWidget);
-MessageBirdChatWidget.on('toggle', (isOpen) => {
-  let timeout;
-  if (isOpen){
-    timeout = setTimeout(() => {removeBtnDl()}, 1500)
-  } else{
-    if (timeout){
-      clearTimeout(timeout);
-    }
-  }
-})
-
-// function removeDlBtn(){
-  // var head = $("#iframe").contents().find("head");
-  // var css = '<style type="text/css">' +
-  //           '.styles_footer__PCkie {display:none !important}; ' +
-  //           '</style>';
-  // $(head).append(css);
-// }
-// removeDlBtn();
 fetch_data();
 const runningFunc = setInterval(fetch_data, 15000);
 $(window).bind("beforeunload", function() { 
