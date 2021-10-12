@@ -1,8 +1,10 @@
 from datetime import datetime
+from json.decoder import JSONDecodeError
 import os
 from flask import Blueprint, json
 from flask import request, jsonify
 from dowell_app.models.feedback import Feedback
+import json as json_
 
 feedback = Blueprint('feedback', __name__)
 
@@ -19,7 +21,14 @@ def query_records():
 @feedback.route('/', methods=['PUT'])
 def create_feedback():
     eid = request.args.get('eid')
-    record = json.loads(request.data)
+    print("REQUEST: ", request.data)
+    print(type(request.data))
+    try:
+        record = json.loads(request.data)
+    except JSONDecodeError:
+        req_data = (request.data).decode('utf-8')
+        print("DATA: ",req_data)
+        record = json.loads(req_data) 
     print(record)
     s_key = os.getenv('ENCRYPT_KEY')
     if record and s_key == eid:

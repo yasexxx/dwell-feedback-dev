@@ -4,7 +4,7 @@ from mongoengine import signals
 
 class Feedback(mongodb.Document):
     feedback_id = mongodb.SequenceField(unique=True)
-    si_number = mongodb.StringField(max_length=200, required=True)
+    si_number = mongodb.IntField(max_length=200, required=True)
     date = mongodb.StringField(required= True)
     project_number = mongodb.StringField(max_length=150, required=True)
     name = mongodb.StringField(max_length=200, required=True)
