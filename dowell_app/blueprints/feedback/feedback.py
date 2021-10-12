@@ -1,3 +1,4 @@
+from datetime import datetime
 import os
 from flask import Blueprint, json
 from flask import request, jsonify
@@ -19,12 +20,18 @@ def query_records():
 def create_feedback():
     eid = request.args.get('eid')
     record = json.loads(request.data)
+    print(record)
     s_key = os.getenv('ENCRYPT_KEY')
     if record and s_key == eid:
-        fb = Feedback(name=record['name'], project_id=record['project_id'], email=record['email'],  occupation=record['occupation'],
-            feedback_1=record['feedback_1'], feedback_2=record['feedback_2'], total=record['total'],)
+        fb = Feedback(si_number=record['si_number'], date=record['date'], project_number=record['project_number'],  
+            name=record['name'], phone=record['phone'], email=record['email'], dowellID=record['dowellID'], 
+            country=record['country'], role=record['role'], q01=record['q01'], q02=record['q02'], q03=record['q03'],
+            q04=record['q04'], q05=record['q05'], q06=record['q06'], q07=record['q07'], q08=record['q08'],
+            q09=record['q09'], q10=record['q10'], q11=record['q11'], q12=record['q12'], q13=record['q13'],
+            q14=record['q14'], total=record['total'], percentage=record['percentage'], feedback1=record['feedback1'], 
+            feedback2=record['feedback2'])
         fb.save()
-        return jsonify({'message': 'Feedback added with name {}'.format(record['name'])}), 200
+        return jsonify({'message': 'Feedback added with SI Number {}'.format(record['si_number'])}), 200
     else:
         return jsonify({'message': 'Error unauthorized saving data endpoint'}), 401
 
