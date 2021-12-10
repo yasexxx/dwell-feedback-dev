@@ -23,8 +23,16 @@ function fetch_data() {
         }
       });
 }
+
+function clearInfoUser() {
+  if (window.MessageBirdChatWidget){
+    return window.MessageBirdChatWidget.logout();
+  }
+}
+
 fetch_data();
 const runningFunc = setInterval(fetch_data, 15000);
 $(window).bind("beforeunload", function() { 
-    clearInterval(runningFunc)
+    clearInterval(runningFunc);
+    clearInfoUser();
 })
