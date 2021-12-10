@@ -24,15 +24,21 @@ function fetch_data() {
       });
 }
 
-function clearInfoUser() {
-  if (window.MessageBirdChatWidget){
-    return window.MessageBirdChatWidget.logout();
-  }
-}
-
 fetch_data();
 const runningFunc = setInterval(fetch_data, 15000);
-$(window).bind("beforeunload", function() { 
+
+
+function clearInfoUser() {
+  return setTimeout( () => {
+    if(window.MessageBirdChatWidget){
+      window.MessageBirdChatWidget.logout()
+      .then().catch( () => console.error('Fail to erase some information'));
+    }
+  }, 3000);
+}
+var timeout = clearInfoUser();
+
+window.addEventListener('beforeunload', function (e) {
     clearInterval(runningFunc);
-    clearInfoUser();
-})
+    clearTimeout(timeout);
+});
